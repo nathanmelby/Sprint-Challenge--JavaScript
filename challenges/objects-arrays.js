@@ -98,12 +98,10 @@ console.log(contactInfo);
 
 
 /* Request 3: Find out how many universities have the string "Uni" included in their name. Create a new array called uni that contains them all. Log the result. */
-// const uni = graduates.filter(function (name) {
-//   return name.university.includes("uni");
-// });
-// console.log(uni);
+const uni = graduates.filter(graduate => graduate.university.toLowerCase().includes("uni")).length;
+console.log(uni)
 
-
+// console.log(`graduates`, graduates)
 // ==== ADVANCED Array Methods ====
 
 // Given this zoo data from around the United States, follow the instructions below.  Use the specific array methods in the requests below to solve the problems.
@@ -122,18 +120,19 @@ zooAnimals = [{"animal_name":"Jackal, asiatic","population":5,"scientific_name":
 
 /* Request 1: .forEach()
 
-The zoo wants to display both the scientific name and the animal name in front of the habitats.  Return an array with only the animal and scientific names in it.  The individual values in the array should look like this "Name: Jackal, asiatic, Scientific: Canis aureus."
+The zoo wants to display both the scientific name and the animal name in front of the habitats.  Return an array with only the animal and scientific names in it.  
+The individual values in the array should look like this "Name: Jackal, asiatic, Scientific: Canis aureus."
 
 */
 // const animalNames = zooAnimals.forEach(names => {
 // return `Name: ${animal_name}, Scientific: ${scientific_name}`
 // });
+const nameify = []
 
-
-const animalNames = zooAnimals.forEach((animal_name, scientific_name) => {
-  return `Name: ${animal_name}, Scientific: ${scientific_name}`;
+const animalNames = zooAnimals.forEach(({animal_name, scientific_name}) => {
+  nameify.push(`Name: ${animal_name}, Scientific: ${scientific_name}`);
 });
-console.log(animalNames);
+console.log(nameify);
 /* Request 2: .map()    
 
 The zoos need a list of all their animal's names (names only, not scientific) converted to lower case.  Create a new array named lowerCase and map over each name to convert them all to lower case.  Log the resut.
