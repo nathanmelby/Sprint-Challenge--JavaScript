@@ -6,8 +6,40 @@
   * The last parameter accepts a callback 
   * In the body of the function return the callback with the two parameters that you created
 */
+// function getDimensions(items,cb){
 
+// function consume(items, callback) {
+//   return callback (items.place1)(items.place2);
+// }
+// }
 
+// function consume(items,callback(add) {
+//  return num1+num2
+// });
+
+// function consume(items,function(multiply) {
+//   return num1*num2
+//  });
+
+// function consume(items,function(greeting) {
+//    alert (`Hello ${first-name} ${last-name}, nice to meet you!`);
+//  });
+
+function consume(arg1 ,arg2,callback) {
+  return callback(arg1, arg2)
+}
+
+function add (num1, num2) {
+  return num1 + num2
+}
+
+function multiply (num1, num2) {
+  return num1 * num2
+}
+
+function greeting (arg1, arg2) {
+ alert (`Hello ${arg1} ${arg2}, nice to meet you!`);
+}
 /* Step 2: Create several functions to callback with consume();
   * Create a function named add that returns the sum of two numbers
   * Create a function named multiply that returns the product of two numbers 
@@ -15,10 +47,11 @@
 */
 
 
-/* Step 3: Check your work by un-commenting the following calls to consume(): */
-// consume(2,2,add); // 4
-// consume(10,16,multiply); // 160
-// consume("Mary","Poppins", greeting); // Hello Mary Poppins, nice to meet you!
+//  Step 3: Check your work by un-commenting the following calls to consume(): */
+  
+  console.log(consume(2,2,add)); // 4
+  console.log(consume(10,16,multiply)); // 160
+  console.log(consume("Mary","Poppins", greeting)); // Hello Mary Poppins, nice to meet you!
 
 
 // ==== Closures ==== 
@@ -27,6 +60,9 @@
 
 // Explanation: 
 
+// nested function has access to the variable `internal` because the concept of closure is the ability 
+// for inner functions to have access to their parent functions variables, 
+// even after the parent function has executed
 
 const external = "I'm outside the function";
 
